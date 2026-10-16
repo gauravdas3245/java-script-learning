@@ -1,19 +1,17 @@
-function calculateBill(units) {
-    if (units < 0) {
-        return "Invalid units";
+function convertTime(totalSeconds) {
+    if (totalSeconds < 0 || !Number.isInteger(totalSeconds)) {
+        return "Invalid input";
     }
 
-    let bill = 0;
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = totalSeconds % 60;
 
-    if (units <= 100) {
-        bill = units * 2;
-    } else if (units <= 200) {
-        bill = 100 * 2 + (units - 100) * 3;
-    } else {
-        bill = 100 * 2 + 100 * 3 + (units - 200) * 5;
-    }
-
-    return bill;
+    return {
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+    };
 }
 
-console.log("Electricity bill:", calculateBill(250));
+console.log(convertTime(7384));
