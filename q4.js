@@ -1,3 +1,5 @@
+//array basic
+
 const colors = ["Red","green","blue"];
 colors[0]="orange";
 console.log(colors[colors.length - 1]);
